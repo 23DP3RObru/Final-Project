@@ -64,7 +64,7 @@ const mobileMenuOpen = ref(false);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #fafaf7;   /* very warm off-white */
+  background-color: #fafaf7;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   color: #1c1c1c;
 }
@@ -153,7 +153,7 @@ const mobileMenuOpen = ref(false);
   color: #4a4a4a;
 }
 
-/* active state – subtle underline, no background */
+
 .nav-link.active {
   border-bottom-color: #1e1e1e;
   color: #1a1a1a;
@@ -214,7 +214,7 @@ const mobileMenuOpen = ref(false);
   }
 
   .menu-toggle {
-    display: flex;  /* show hamburger */
+    display: flex;
   }
 
   .primary-nav {
@@ -232,7 +232,7 @@ const mobileMenuOpen = ref(false);
   .nav-link {
     width: 100%;
     padding: 0.6rem 0;
-    border-bottom: none; /* remove underline, use subtle background instead for mobile active? we stay minimal */
+    border-bottom: none;
     border-left: 2px solid transparent;
     padding-left: 0.5rem;
   }
@@ -259,7 +259,7 @@ const mobileMenuOpen = ref(false);
   }
 }
 
-/* even smaller screens */
+
 @media (max-width: 480px) {
   .header-container {
     padding: 0.8rem 1.2rem;
@@ -270,7 +270,7 @@ const mobileMenuOpen = ref(false);
 }
 
 .bg-primary, .navbar, .navbar-dark, .navbar-brand, .navbar-nav, .bg-light {
-  all: unset; /* reset aggressively, but we've overridden everything */
+  all: unset;
 }
 
 .bi {
