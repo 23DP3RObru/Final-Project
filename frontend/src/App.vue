@@ -64,13 +64,13 @@ const mobileMenuOpen = ref(false);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #fafaf7;   /* very warm off-white */
+  background-color: #fafaf7;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  color: #1c1c1c;
+  color: #ffffff;
 }
 
 .app-header {
-  background: transparent;
+  background: black;
   border-bottom: 1px solid #e2e2e2;
   padding: 0.5rem 0;
   width: 100%;
@@ -94,13 +94,13 @@ const mobileMenuOpen = ref(false);
   font-size: 1.5rem;
   font-weight: 320;
   letter-spacing: -0.02em;
-  color: #1e1e1e;
+  color: #ffffff;
   transition: opacity 0.15s;
 }
 
 .brand i {
   font-size: 1.7rem;
-  color: #2a2a2a;
+  color: #ececec;
   line-height: 1;
 }
 
@@ -123,7 +123,7 @@ const mobileMenuOpen = ref(false);
 .toggle-bar {
   width: 100%;
   height: 1.8px;
-  background-color: #2e2e2e;
+  background-color: #ffffff;
   border-radius: 2px;
   transition: 0.2s;
 }
@@ -136,7 +136,7 @@ const mobileMenuOpen = ref(false);
 
 .nav-link {
   text-decoration: none;
-  color: #3b3b3b;
+  color: #ffffff;
   font-weight: 380;
   font-size: 1.05rem;
   padding: 0.4rem 0;
@@ -150,22 +150,22 @@ const mobileMenuOpen = ref(false);
 
 .nav-link i {
   font-size: 1.15rem;
-  color: #4a4a4a;
+  color: #ffffff;
 }
 
-/* active state – subtle underline, no background */
+
 .nav-link.active {
-  border-bottom-color: #1e1e1e;
-  color: #1a1a1a;
+  border-bottom-color: #e9e9e9;
+  color: #ffffff;
   font-weight: 430;
 }
 
 .nav-link.active i {
-  color: #1e1e1e;
+  color: #b8b8b8;
 }
 
 .nav-link:hover {
-  color: #000;
+  color: #c5c5c5;
   border-bottom-color: #aaa;
 }
 
@@ -183,8 +183,8 @@ const mobileMenuOpen = ref(false);
 }
 
 .app-footer {
-  border-top: 1px solid #e6e6e6;
-  background: transparent;
+  border-top: 1px solid #000000;
+  background: black;
   padding: 1.8rem 0;
   margin-top: auto;
 }
@@ -202,7 +202,7 @@ const mobileMenuOpen = ref(false);
 
 .footer-text {
   font-size: 0.9rem;
-  color: #6a6a6a;
+  color: #c7c7c7;
   font-weight: 340;
   letter-spacing: 0.2px;
 }
@@ -214,7 +214,7 @@ const mobileMenuOpen = ref(false);
   }
 
   .menu-toggle {
-    display: flex;  /* show hamburger */
+    display: flex;
   }
 
   .primary-nav {
@@ -232,14 +232,14 @@ const mobileMenuOpen = ref(false);
   .nav-link {
     width: 100%;
     padding: 0.6rem 0;
-    border-bottom: none; /* remove underline, use subtle background instead for mobile active? we stay minimal */
+    border-bottom: none;
     border-left: 2px solid transparent;
     padding-left: 0.5rem;
   }
 
   .nav-link.active {
     border-bottom: none;
-    border-left: 2px solid #1e1e1e;
+    border-left: 2px solid #ffffff;
     background: none;
     font-weight: 450;
   }
@@ -259,7 +259,7 @@ const mobileMenuOpen = ref(false);
   }
 }
 
-/* even smaller screens */
+
 @media (max-width: 480px) {
   .header-container {
     padding: 0.8rem 1.2rem;
@@ -270,7 +270,7 @@ const mobileMenuOpen = ref(false);
 }
 
 .bg-primary, .navbar, .navbar-dark, .navbar-brand, .navbar-nav, .bg-light {
-  all: unset; /* reset aggressively, but we've overridden everything */
+  all: unset;
 }
 
 .bi {

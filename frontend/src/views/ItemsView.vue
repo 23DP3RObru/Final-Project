@@ -1299,6 +1299,74 @@ h1, h2, h3, h4, h5, h6, p {
   }
 }
 
+.item-card {
+  background: white;
+  border: 1px solid #efefef;
+  border-radius: 24px;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Add this */
+  z-index: 1; /* Add this - base z-index */
+}
+
+.item-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04);
+  transform: translateY(-3px);
+  z-index: 5; /* Add this - raise on hover */
+}
+
+.item-menu {
+  position: relative;
+  z-index: 20; /* Add this - higher than card */
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 1.8rem;
+  background: white;
+  border: 1px solid #efefef;
+  border-radius: 14px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  min-width: 130px;
+  z-index: 100; /* Increase this significantly */
+  display: block; /* Add this */
+}
+
+/* Add this to ensure dropdown is visible */
+.item-card:has(.dropdown-menu) {
+  z-index: 10; /* Raise card when its dropdown is open */
+}
+
+/* Fix potential overflow issues */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.8rem;
+  overflow: visible !important; /* Add this */
+}
+
+.item-card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: visible; /* Add this */
+}
+
+.marketplace-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2.5rem;
+  overflow: visible; /* Add this */
+}
+
+.items-section {
+  min-height: 400px;
+  overflow: visible; /* Add this */
+}
+
 .bi {
   color: currentColor;
 }
