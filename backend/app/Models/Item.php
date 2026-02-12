@@ -6,11 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-    protected $fillable = ['name', 'description'];
+    protected $fillable = [
+        'name', 
+        'description', 
+        'price', 
+        'quantity', 
+        'shipping_type',
+        'shipping_cost',
+        'condition',
+        'category'
+    ];
     
-    // Optional: Add casting if needed
     protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
+        'price' => 'decimal:2',
+        'shipping_cost' => 'decimal:2',
+        'quantity' => 'integer',
     ];
 }

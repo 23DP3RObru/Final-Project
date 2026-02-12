@@ -1,57 +1,283 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <router-link to="/" class="navbar-brand">Vue + Laravel</router-link>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
+    <header class="app-header">
+      <div class="header-container">
+        <router-link to="/" class="brand">
+          <i class="bi bi-shop"></i>
+          <span>ProbablyLegit</span>
+        </router-link>
+
+        <button 
+          class="menu-toggle" 
+          @click="mobileMenuOpen = !mobileMenuOpen"
+          :aria-expanded="mobileMenuOpen"
+          aria-label="Menu"
+        >
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
+          <span class="toggle-bar"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <router-link to="/" class="nav-link" active-class="active">Home</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link to="/items" class="nav-link" active-class="active">Database Test</router-link>
-            </li>
-          </ul>
-        </div>
+
+        <nav 
+          class="primary-nav" 
+          :class="{ 'is-open': mobileMenuOpen }"
+        >
+          <router-link to="/" class="nav-link" active-class="active" exact>
+            <i class="bi bi-house"></i> Home
+          </router-link>
+          <router-link to="/items" class="nav-link" active-class="active">
+            <i class="bi bi-grid"></i> Pārlūkot preces
+          </router-link>
+        </nav>
       </div>
-    </nav>
-    
-    <main class="container-fluid py-4">
-      <router-view/>
+    </header>
+
+    <main class="app-main">
+      <div class="main-container">
+        <router-view />
+      </div>
     </main>
-    
-    <footer class="footer mt-auto py-3 bg-light">
-      <div class="container text-center">
-        <span class="text-muted">Vue.js + Laravel API Connected</span>
+
+    <footer class="app-footer">
+      <div class="footer-container">
+        <span class="footer-text">ProbablyLegit © 2026</span>
+        <span class="footer-text">Būvēts ar Vue.js + Laravel</span>
       </div>
     </footer>
   </div>
 </template>
 
 <script setup>
-// No script needed for basic navigation
+import { ref } from 'vue';
+
+const mobileMenuOpen = ref(false);
 </script>
 
-<style>
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #fafaf7;   /* very warm off-white */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #1c1c1c;
 }
 
-main {
-  flex: 1;
+.app-header {
+  background: transparent;
+  border-bottom: 1px solid #e2e2e2;
+  padding: 0.5rem 0;
+  width: 100%;
 }
 
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 320;
+  letter-spacing: -0.02em;
+  color: #1e1e1e;
+  transition: opacity 0.15s;
+}
+
+.brand i {
+  font-size: 1.7rem;
+  color: #2a2a2a;
+  line-height: 1;
+}
+
+.brand:hover {
+  opacity: 0.7;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.toggle-bar {
+  width: 100%;
+  height: 1.8px;
+  background-color: #2e2e2e;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+
+.primary-nav {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #3b3b3b;
+  font-weight: 380;
+  font-size: 1.05rem;
+  padding: 0.4rem 0;
+  letter-spacing: -0.005em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-bottom: 1.5px solid transparent;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.nav-link i {
+  font-size: 1.15rem;
+  color: #4a4a4a;
+}
+
+/* active state – subtle underline, no background */
 .nav-link.active {
-  font-weight: bold;
-  color: #fff !important;
+  border-bottom-color: #1e1e1e;
+  color: #1a1a1a;
+  font-weight: 430;
 }
 
-.footer {
+.nav-link.active i {
+  color: #1e1e1e;
+}
+
+.nav-link:hover {
+  color: #000;
+  border-bottom-color: #aaa;
+}
+
+.app-main {
+  flex: 1;
+  display: flex;
+  width: 100%;
+}
+
+.main-container {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+}
+
+.app-footer {
+  border-top: 1px solid #e6e6e6;
+  background: transparent;
+  padding: 1.8rem 0;
   margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  color: #6a6a6a;
+  font-weight: 340;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 0.8rem 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: flex;  /* show hamburger */
+  }
+
+  .primary-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 1.5rem 0 0.8rem 0;
+    gap: 1.2rem;
+  }
+
+  .primary-nav.is-open {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+    padding: 0.6rem 0;
+    border-bottom: none; /* remove underline, use subtle background instead for mobile active? we stay minimal */
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+  }
+
+  .nav-link.active {
+    border-bottom: none;
+    border-left: 2px solid #1e1e1e;
+    background: none;
+    font-weight: 450;
+  }
+
+  .brand {
+    font-size: 1.4rem;
+  }
+
+  .main-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1.5rem;
+  }
+}
+
+/* even smaller screens */
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0.8rem 1.2rem;
+  }
+  .main-container {
+    padding: 1.8rem 1.2rem;
+  }
+}
+
+.bg-primary, .navbar, .navbar-dark, .navbar-brand, .navbar-nav, .bg-light {
+  all: unset; /* reset aggressively, but we've overridden everything */
+}
+
+.bi {
+  color: currentColor;
+}
+
+a {
+  text-decoration: none;
 }
 </style>
